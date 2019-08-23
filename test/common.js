@@ -51,22 +51,22 @@ exports["Email address"] = function(test) {
   test.done(); 
 };
 
-exports["Unquote UTF8"] = function(test) {
+exports["Unquote"] = function(test) {
   var fixture, expected, actual;
   
   fixture = "=?UTF-8?Q?You=E2=80=99ve_added_a_card?=";
   expected = "You’ve_added_a_card";
-  actual = emlformat.unquoteUTF8(fixture);
+  actual = emlformat.unquoteEncoding(fixture);
   test.ok(actual == expected, 'Expected "' + expected + '" but got "' + actual + '"');
   
   fixture = "=?UTF-8?B?V2hhdOKAmXMgeW91ciBvbmxpbmUgc2hvcHBpbmcgc3R5bGU/?=";
   expected = "What’s your online shopping style?";
-  actual = emlformat.unquoteUTF8(fixture);
+  actual = emlformat.unquoteEncoding(fixture);
   test.ok(actual == expected, 'Expected "' + expected + '" but got "' + actual + '"');
 
   fixture = "=?GB2312?B?YWLV4srH1tDTos7EY2S77MXFZWY=?=";
   expected = "ab这是中英文cd混排ef"
-  actual = emlformat.unquoteUTF8(fixture);
+  actual = emlformat.unquoteEncoding(fixture);
   test.ok(actual == expected, 'Expected "' + expected + '" but got "' + actual + '"');
   
   test.done(); 
