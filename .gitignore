@@ -37,3 +37,6 @@ node_modules
 
 # test temp file
 test/unpack
+
+# package-lock.json
+package-lock.json
