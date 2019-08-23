@@ -63,6 +63,11 @@ exports["Unquote UTF8"] = function(test) {
   expected = "What’s your online shopping style?";
   actual = emlformat.unquoteUTF8(fixture);
   test.ok(actual == expected, 'Expected "' + expected + '" but got "' + actual + '"');
+
+  fixture = "=?GB2312?B?YWLV4srH1tDTos7EY2S77MXFZWY=?=";
+  expected = "ab这是中英文cd混排ef"
+  actual = emlformat.unquoteUTF8(fixture);
+  test.ok(actual == expected, 'Expected "' + expected + '" but got "' + actual + '"');
   
   test.done(); 
 };
