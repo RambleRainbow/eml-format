@@ -3,6 +3,16 @@
 This package is forked from [papnkukn/eml-format](https://github.com/papnkukn/eml-format).
 I find some error when use this package, so I add some feature to the package for more stuble.
 
+1. some eml files contain boundary. but their boundary do not have start with a blank line.
+   so change the boundary start detect condition, remove the prelead blank line.
+
+1. the origin project can only unquote "UTF-8" field.
+   so add "iconv-lite" to support more encoding.
+   current support fields:
+   * subject
+   * email
+   * attachment.name
+
 ## EML file format
 
 A pure Node.js library for parsing and building EML files, i.e. e-mail message format described in [RFC 822](http://www.ietf.org/rfc/rfc0822.txt). EML is returned by the POP3 protocol and handled by many e-mail agents like Mozilla Thunderbird or Micfosot Outlook. An EML file consists of headers and body similar to the HTTP structure.
